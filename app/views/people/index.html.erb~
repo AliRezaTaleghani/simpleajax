@@ -1,0 +1,42 @@
+<h1>Listing people</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Family</th>
+    <th>Age</th>
+    <th>Cellno</th>
+  </tr>
+
+<% for person in @people %>
+  <tr>
+    <td><%=h person.name %></td>
+    <td><%=h person.family %></td>
+    <td><%=h person.age %></td>
+    <td><%=h person.cellno %></td>
+    
+    <td><%= link_to_remote("Show", :update => 'ShowEdit', :url => { :action => :showjaxs, :id => person.id } ) %></td>
+	 <td><%= link_to_remote("Edit", :update => 'ShowEdit', :url => { :action => :editjaxs, :id => person.id } ) %></td>		    
+
+    
+    <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div id="ShowEdit">
+</div>
+<div id="newPerson">
+<%= link_to_remote("NewPerson", :update => 'newPerson',	:url => { :action => :new }) %>
+</div>
+<hr>
+
+<div id="footer" align="center">
+******************
+<div id="mydiv" align="center">
+<%= link_to_remote("Do the Ajax thing", :update => 'mydiv',	:url => { :action => :hello }) %>
+This text will be changed
+</div>
+******************
+</div>

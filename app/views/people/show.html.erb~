@@ -1,0 +1,28 @@
+<p>
+  <b>ID:</b>
+  <%=h @person.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @person.name %>
+</p>
+
+<p>
+  <b>Family:</b>
+  <%=h @person.family %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%=h @person.age %>
+</p>
+
+<p>
+  <b>Cellno:</b>
+  <%=h @person.cellno %>
+</p>
+
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
