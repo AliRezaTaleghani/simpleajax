@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :people
-
+  map.ice_page '/ice', :controller => 'people', :action => 'ice'
   map.show_page ':name', :controller => 'people', :action => 'show'
+  
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
 
