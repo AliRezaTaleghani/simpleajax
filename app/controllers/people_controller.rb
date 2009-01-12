@@ -1,7 +1,14 @@
 class PeopleController < ApplicationController
-	
+
+	before_filter :authenticate, :except => [:index, :show ]	
+
   # GET /people
   # GET /people.xml
+  
+
+	def ice
+	end
+  
   def showjaxs
     @person = Person.find(params[:id])
   end
@@ -103,3 +110,12 @@ class PeopleController < ApplicationController
     end
   end
 end
+
+
+	private 
+	def authenticate 
+		authenticate_or_request_with_http_basic do |name, password|
+		name == "admin" && password == "secret"
+	end
+	
+	end 
